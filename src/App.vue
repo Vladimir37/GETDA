@@ -1,13 +1,15 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
     <router-view/>
   </div>
 </template>
 
 <script>
+import './assets/theme/bootstrap.min.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
+
 export default {
-  name: 'App'
+  name: 'App',
 }
 </script>
 

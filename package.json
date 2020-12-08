@@ -13,7 +13,8 @@
     "bootstrap": "^4.5.3",
     "bootstrap-vue": "^2.20.1",
     "vue": "^2.5.2",
-    "vue-router": "^3.0.1"
+    "vue-router": "^3.0.1",
+    "vue-toasted": "^1.1.28"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
