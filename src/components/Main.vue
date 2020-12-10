@@ -1,11 +1,11 @@
 <template>
-    <main>
+    <main :class="$style.main">
         <b-card-group deck>
             <b-card
                 header="Загрузить матрицу"
                 header-tag="header"
             >
-                <div class="main_fileInput">
+                <div :class="$style.fileInput">
                     <b-form-file
                         v-model="matrix"
                         :state="fileValidator(matrix)"
@@ -20,16 +20,16 @@
                 header="Создать матрицу"
                 header-tag="header"
             >
-                <div class="main_inputs">
+                <div :class="$style.inputs">
                     <b-form-input 
                         type="number" 
-                        class="main_sizeInput" 
+                        :class="$style.sizeInput" 
                         v-model="width"
                         placeholder="Ширина"
                     ></b-form-input>
                     <b-form-input 
                         type="number" 
-                        class="main_sizeInput" 
+                        :class="$style.sizeInput" 
                         v-model="height"
                         placeholder="Высота"
                     ></b-form-input>
@@ -54,8 +54,8 @@ export default {
     },
     data() {
         return {
-            width: 0,
-            height: 0,
+            width: null,
+            height: null,
             matrix: null,
         }
     },
@@ -65,6 +65,7 @@ export default {
         },
         createMatrix() {
             if (this.width > 0 && this.height > 0) {
+                this.$router.push({path: `/editor/${this.width}/${this.height}`});
                 return;
             }
             this.$toasted.show('Введены некорректные размеры матрицы');
@@ -73,20 +74,20 @@ export default {
 }
 </script>
 
-<style>
-main {
+<style module>
+.main {
     width: 1200px;
     margin: 0 auto;
 }
-.main_inputs {
+.inputs {
     display: flex;
     justify-content: space-between;
     margin-bottom: 20px;
 }
-.main_sizeInput {
+.sizeInput {
     width: 45%;
 }
-.main_fileInput {
+.fileInput {
     margin-bottom: 20px;
 }
 </style>
